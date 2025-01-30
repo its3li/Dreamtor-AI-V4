@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Rockybilly';
+  src: url('/assets/fonts/Rockybilly.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-purple-darkest: #0F0817;
+  --color-purple-darker: #1A0B2E;
+  --color-purple-dark: #2D1B4E;
+  --color-purple: #4C3575;
+  --color-purple-light: #9D4EDD;
+  --color-accent: #FF2EFF;
+}
+
+@layer base {
+  body {
+    @apply antialiased text-white;
+    background: var(--color-purple-darkest);
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+
+@layer components {
+  .nav-pill {
+    @apply relative px-6 py-2.5 text-sm text-white/80 transition-all duration-300;
+  }
+
+  .nav-pill.active {
+    @apply text-white bg-purple-600/30 rounded-full font-medium;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .nav-container {
+    @apply flex gap-1 p-1.5 rounded-full bg-purple-900/40 backdrop-blur-lg;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .settings-section {
+    @apply pt-4 mt-4 border-t border-purple-500/10;
+  }
+}
+
+@layer utilities {
+  .font-rockybilly {
+    font-family: 'Rockybilly', sans-serif !important;
+  }
+
+  .glass-morphism {
+    @apply backdrop-blur-lg bg-purple-900/10 border border-purple-500/10;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-br from-purple-400 via-purple-600 to-purple-900 bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(147, 51, 234, 0.2);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(147, 51, 234, 0.2),
+                0 0 10px rgba(147, 51, 234, 0.2),
+                0 0 15px rgba(147, 51, 234, 0.2);
+  }
+  to {
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.3),
+                0 0 20px rgba(147, 51, 234, 0.3),
+                0 0 30px rgba(147, 51, 234, 0.3);
+  }
+}
