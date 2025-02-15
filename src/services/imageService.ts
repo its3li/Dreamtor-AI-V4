@@ -39,7 +39,7 @@ const defaultSettings: ImageSettings = {
   seed: -1,
   nologo: true,
   private: true,
-  safe: false,
+  safe: true,
   imageCount: 2,
   aspectRatio: 'square'
 };
